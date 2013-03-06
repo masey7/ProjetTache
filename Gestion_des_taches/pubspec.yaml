@@ -1,0 +1,9 @@
+name: Gestion_des_taches
+version: 1.0.0
+author: Marc-Antoine Seyer <ms.seyer@gmail.com>
+description: "Une application permettant de gérer des tâches"
+dependencies:
+  browser: any
+  web_ui: any
+  dartlero:
+    git: git://github.com/dzenanr/dartlero.git

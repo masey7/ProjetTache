@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Categories</title>    
+    <link rel="components" href="../taches/link_table.html">
+  </head>
+  <body>
+    <element name="x-category-table" extends="span">
+      <template>
+        <table>
+          <caption class="marker">
+            Catégories
+          </caption>
+          <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th></th>
+
+          </tr>
+          <tbody template iterate="category in categories.toList()">
+            <tr template if="displayCategory">
+              <td>    
+                {{ category.code }}        
+              </td>
+              <td>
+                {{ category.description }}
+              </td>
+              <td><img src="../component/compo_commun/icones/folder_magnify.png" on-click="showLinks(category)" alt="Tâches" />
+              <img id="editCategoryButton" src="../component/compo_commun/icones/folder_edit.png" on-click="edit(category)" alt="Modifier" />
+              <img src="../component/compo_commun/icones/folder_delete.png" on-click="delete(category)" alt="Supprimer" />
+              </td>
+            </tr>
+            <tr template if="editCategory">
+              <td>
+                {{ category.code }}        
+               <!--  
+                <div template if="showCategoryEdit  category.code={{ category.code }}">
+                  
+                <label for="add-category-code">Name</label>
+                <input id="add-category-code" type="text" size="32"/>
+                <br/>
+                <label for="add-category-description">Description</label>
+                <input id="add-category-description" type="text" size="96"/>
+                  
+                  </div>
+        -->
+                
+              </td>
+              <td>
+                <input id="edit-category-description" type="text" size="32" value="{{ category.description }}"/>
+              </td>
+              <td><img src="../component/compo_commun/icones/folder_magnify.png" on-click="showLinks(category)" alt="Tâches" />
+              <img id="editCategoryButton" src="../component/compo_commun/icones/folder_edit.png" on-click="edit(category)" alt="Modifier" />
+              <img src="../component/compo_commun/icones/folder_delete.png" on-click="delete(category)" alt="Supprimer" />
+              </td>
+             </tr>
+          </tbody>
+          <tr>
+          <td><input id="add-category-code" type="text" style="width:90%"/></td>
+          <td><input id="add-category-description" type="text" style="width:95%"/></td>
+          <td><img src="../component/compo_commun/icones/folder_add.png" on-click="ajouterCategorie()" alt="Ajouter catégorie"/></td>
+           </tr>
+
+           </table>
+          <span id="add-category-message"></span>
+
+        <br/>
+        <div template if="showCategoryLinks">
+          <x-link-table
+            category="{{ category }}"
+            links="{{ category.links }}">
+          </x-link-table>
+        </div>
+      </template>
+      <script type="application/dart" src="category_table.dart"></script>
+    </element>
+  </body>
+</html>

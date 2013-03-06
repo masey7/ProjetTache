@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Gestion des tâches</title>
+    <link rel="components" href="component/category/category_table.html">
+    <link rel="stylesheet" href="css/input.css"/>
+    <link rel="stylesheet" href="css/link.css"/>
+    <link rel="stylesheet" href="css/marker.css"/>
+    <link rel="stylesheet" href="css/page.css"/>
+    <link rel="stylesheet" href="css/table.css"/>
+    <link rel="stylesheet" href="css/footer.css"/>
+    
+    
+  </head>
+  
+  <body>
+    <div class="page-title">
+     Gestion des tâches
+    </div>
+    <x-category-table
+      categories="{{ categories }}">
+    </x-category-table>
+
+<footer>Merci à <a href="http://www.famfamfam.com">famfamfam</a> pour leurs belles icônes.</footer>
+
+    <script type="application/dart" src="category_links.dart"></script>
+    <script src="packages/browser/dart.js"></script>
+    
+  </body>
+  
+
+
+</html>
