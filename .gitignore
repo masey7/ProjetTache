@@ -1,6 +1,6 @@
 .buildlog
 packages
-*/web/out
+web/out
 *.js
 *.js.deps
 *.js.map
