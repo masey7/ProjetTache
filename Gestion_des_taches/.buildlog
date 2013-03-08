@@ -4874,3 +4874,90 @@ build.dart --machine --changed=web\out\categorie_taches.html --changed=web\out\c
 Total time                                                   --  12 ms
 build.dart finished [426 ms]
 
+---
+build.dart --machine --changed=lib\dartlero_categorie_taches.dart --changed=lib\model\category_entities.dart --...
+[{"method":"mapping","params":{"from":"web/categorie_taches.html","to":"web/out/categorie_taches.html"}}]
+Total time spent on web/categorie_taches.html                -- 498 ms
+Total time                                                   -- 510 ms
+build.dart finished [859 ms]
+
+---
+build.dart --machine --changed=web\out\categorie_taches.html --changed=web\out\categorie_taches.html_bootstrap....
+Total time                                                   --  17 ms
+build.dart finished [624 ms]
+
+---
+build.dart --machine --changed=web\component\category\category_table.dart --changed=web\component\category\cate...
+[{"method":"mapping","params":{"from":"web/categorie_taches.html","to":"web/out/categorie_taches.html"}}]
+Total time spent on web/categorie_taches.html                -- 594 ms
+Total time                                                   -- 608 ms
+build.dart finished [1023 ms]
+
+---
+build.dart --machine --changed=web\out\categorie_taches.html --changed=web\out\categorie_taches.html_bootstrap....
+Total time                                                   --  11 ms
+build.dart finished [582 ms]
+
+---
+build.dart --machine --changed=web\component\compo_commun\sauvegarde.dart
+[{"method":"mapping","params":{"from":"web/categorie_taches.html","to":"web/out/categorie_taches.html"}}]
+Total time spent on web/categorie_taches.html                -- 578 ms
+Total time                                                   -- 596 ms
+build.dart finished [987 ms]
+
+---
+build.dart --machine --changed=web\out\categorie_taches.html --changed=web\out\categorie_taches.html_bootstrap....
+Total time                                                   --  10 ms
+build.dart finished [415 ms]
+
+---
+build.dart --machine --changed=web\component\compo_commun\icones\add.png --changed=web\component\compo_commun\i...
+Total time                                                   --   8 ms
+build.dart finished [397 ms]
+
+---
+build.dart --machine --changed=web\component\compo_commun\icones\user_edit.png
+Total time                                                   --  35 ms
+build.dart finished [741 ms]
+
+---
+build.dart --machine --changed=web\component\taches\link_add.dart --changed=web\component\taches\link_add.html ...
+[{"method":"mapping","params":{"from":"web/categorie_taches.html","to":"web/out/categorie_taches.html"}}]
+Total time spent on web/categorie_taches.html                -- 565 ms
+Total time                                                   -- 580 ms
+build.dart finished [951 ms]
+
+---
+build.dart --machine --changed=web\out\categorie_taches.html --changed=web\out\categorie_taches.html_bootstrap....
+Total time                                                   --  24 ms
+build.dart finished [626 ms]
+
+---
+build.dart --machine --removed=pubspec.lock
+Total time                                                   --  14 ms
+build.dart finished [377 ms]
+
+---
+build.dart --machine --full
+[{"method":"mapping","params":{"from":"web/categorie_taches.html","to":"web/out/categorie_taches.html"}}]
+Total time spent on web/categorie_taches.html                -- 647 ms
+Total time                                                   -- 660 ms
+build.dart finished [1102 ms]
+
+---
+build.dart --machine --full
+[{"method":"mapping","params":{"from":"web/categorie_taches.html","to":"web/out/categorie_taches.html"}}]
+Total time spent on web/categorie_taches.html                -- 1000 ms
+Total time                                                   -- 1018 ms
+build.dart finished [1694 ms]
+
+---
+build.dart --machine --changed=web\out\categorie_taches.html --changed=web\out\categorie_taches.html_bootstrap....
+Total time                                                   --  30 ms
+build.dart finished [912 ms]
+
+---
+build.dart --machine --changed=web\out\categorie_taches.html --changed=web\out\categorie_taches.html_bootstrap....
+Total time                                                   --  18 ms
+build.dart finished [676 ms]
+

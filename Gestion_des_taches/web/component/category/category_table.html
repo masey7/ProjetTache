@@ -20,7 +20,7 @@
 
           </tr>
           <tbody template iterate="category in categories.toList()">
-            <tr template if="displayCategory">
+            <tr template if="display(category)">
               <td>    
                 {{ category.code }}        
               </td>
@@ -32,7 +32,7 @@
               <img src="../component/compo_commun/icones/folder_delete.png" on-click="delete(category)" alt="Supprimer" />
               </td>
             </tr>
-            <tr template if="editCategory">
+            <tr template if="!display(category)">
               <td>
                 {{ category.code }}        
                <!--  
