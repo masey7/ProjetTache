@@ -1,21 +1,11 @@
+# ProjetTache with dartlero and Web Components
 
-# Category Links Application with dartlero and Web Components: Spirals
+**Categories**: education, class model, web components.
 
-**Categories**: education, class models, web components.
+**Concepts**: to do.
 
-**Concepts**: Category, Link.
-
-**Description**:
-A model with 2 concepts to show how to use dartlero, 
-a model framework for educational purposes.
-A web application with web components that use the model.
+**Description**: to do.
 
 **Start**:
-Clone the project and open a spiral (a folder within the project) with Dart Editor. 
- 
-
-
-
-
-
-
+Clone the project and open it with Dart Editor. 
+Select the categorie_taches.html file in the web directory and run it in Dartium. 
