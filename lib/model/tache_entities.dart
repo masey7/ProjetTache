@@ -19,14 +19,16 @@ class Tache extends ConceptEntity<Tache> {
     Map<String, Object> entityMap = super.toJson();
     
     entityMap['description'] = description;
-    entityMap['date'] = date;
+    //entityMap['date'] = date;
+    entityMap['date'] = date.toString();
     return entityMap;
   }
 
   fromJson(Map<String, Object> entityMap) {
     super.fromJson(entityMap);
     description = entityMap['description'];
-    date = entityMap['date'];
+    //date = entityMap['date'];
+    date = DateTime.parse(entityMap['date']);
   }
 
   bool get onProgramming =>

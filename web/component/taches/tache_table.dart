@@ -4,7 +4,8 @@ import 'package:web_ui/web_ui.dart';
 
 class TacheTable extends WebComponent {
   Category category;
-  Taches Taches;
+  //Taches Taches;
+  Taches taches;
   Tache instancetache;
 
   bool showTacheAdd = false;
@@ -27,7 +28,7 @@ class TacheTable extends WebComponent {
   }
 
   delete(tache) {
-    Taches.remove(tache);
+    taches.remove(tache);
   }
 
 }

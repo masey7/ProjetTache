@@ -8,7 +8,7 @@ testCategoryLinks() {
   Category category;
   group("Testing Category Links: ", () {
     setUp(() {
-      CategoryLinksModel categoryLinksModel = new CategoryLinksModel();
+      CategoryTachesModel categoryLinksModel = new CategoryTachesModel();
       categoryLinksModel.init();
       Categories categories = categoryLinksModel.categories;
       category = categories.find('Dart');

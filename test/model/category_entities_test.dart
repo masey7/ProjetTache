@@ -6,7 +6,7 @@ testCategories() {
   Categories categories;
   group("Testing Categories: ", () {
     setUp(() {
-      CategoryLinksModel categoryLinksModel = new CategoryLinksModel();
+      CategoryTachesModel categoryLinksModel = new CategoryTachesModel();
       categoryLinksModel.init();
       categories = categoryLinksModel.categories;
     });

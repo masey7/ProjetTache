@@ -3,11 +3,11 @@ import 'package:dartlero/dartlero.dart';
 import 'package:Gestion_des_taches/dartlero_categorie_taches.dart';
 
 testModel() {
-  CategoryLinksModel categoryLinksModel;
+  CategoryTachesModel categoryLinksModel;
   Categories categories;
   group("Testing Model: ", () {
     setUp(() {
-      categoryLinksModel = new CategoryLinksModel();
+      categoryLinksModel = new CategoryTachesModel();
       categoryLinksModel.init();
       categories = categoryLinksModel.categories;
     });

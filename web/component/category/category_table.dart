@@ -1,4 +1,5 @@
 import 'dart:html';
+import 'dart:json';
 
 import  '../compo_commun/sauvegarde.dart'  as  ComposantesCommuns;
 import 'package:Gestion_des_taches/dartlero_categorie_taches.dart';
@@ -18,7 +19,12 @@ class CategoryTable extends WebComponent {
     editCategory = false;
     this.category = null;  
     categoryTable.categories.order();
-    ComposantesCommuns.sauvegarder(categories);
+    sauvegarder();
+  }
+  
+  sauvegarder() {
+    window.localStorage['dartlero_categorie_taches'] =
+        stringify(categories.toJson());
   }
   
   refuserChangement(category) {
