@@ -1,10 +1,10 @@
-library dartlero_category_links;
+library dartlero_category_tache;
 
 import 'dart:uri';
 import 'package:dartlero/dartlero.dart';
 
 
 part 'model/category_entities.dart';
-part 'model/category_links_model.dart';
-part 'model/link_entities.dart';
+part 'model/category_taches_model.dart';
+part 'model/tache_entities.dart';
 

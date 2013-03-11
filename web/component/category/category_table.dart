@@ -8,37 +8,56 @@ class CategoryTable extends WebComponent {
   Categories categories;
   Category category;
   
-  bool showCategoryLinks = false;
+  bool showCategoryTaches = false;
   bool editCategory = false;
   
-  update() {
+  update(category) {
     InputElement description = query('#edit-category-description');
     category.description = description.value;
     var categoryTable = document.query('x-category-table').xtag;
-    categoryTable.showCategoryEdit = false;
+    editCategory = false;
+    this.category = null;  
+    categoryTable.categories.order();
+    ComposantesCommuns.sauvegarder(categories);
   }
+  
+  refuserChangement(category) {
+    editCategory = false;
+    this.category = null;
+  }  
   
   edit(category) {
     this.category = category;
+    editCategory = true;
   }
     
   display(category) {
-    if (this.category != category) {
-      return true;
+    if (this.category == category) {
+     
+        if(editCategory == true) {
+        
+          return false;
+        }
+        else{
+          return true;
+        }
     }
-    return false;
+    else{
+    
+     return true;
+  }
   }
   
   delete(category) {
     categories.remove(category);
-    showCategoryLinks = false;
+    showCategoryTaches = false;
     ComposantesCommuns.sauvegarder(categories);
   }
 
-  showLinks(category) {
-    showCategoryLinks = true;
+  showTaches(category) {
+    showCategoryTaches = true;
     this.category = category;
-    category.links.order();
+    category.taches.order();
   }
   
   ajouterCategorie() {

@@ -1,12 +1,12 @@
-part of dartlero_category_links;
+part of dartlero_category_tache;
 
 class Category extends ConceptEntity<Category> {
 
   String description;
-  Links links = new Links();
+  Taches taches = new Taches();
 
   Category newEntity() => new Category();
-
+  
   String toString() {
     return '  {\n '
            '    ${super.toString()}, \n '
@@ -17,14 +17,14 @@ class Category extends ConceptEntity<Category> {
   Map<String, Object> toJson() {
     Map<String, Object> entityMap = super.toJson();
     entityMap['description'] = description;
-    entityMap['links'] = links.toJson();
+    entityMap['taches'] = taches.toJson();
     return entityMap;
   }
 
   fromJson(Map<String, Object> entityMap) {
     super.fromJson(entityMap);
     description = entityMap['description'];
-    links.fromJson(entityMap['links']);
+    taches.fromJson(entityMap['taches']);
   }
 
   bool get onProgramming =>

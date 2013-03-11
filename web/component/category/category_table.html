@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>Categories</title>    
-    <link rel="components" href="../taches/link_table.html">
+    <link rel="components" href="../taches/tache_table.html">
   </head>
   <body>
     <element name="x-category-table" extends="span">
@@ -27,38 +27,28 @@
               <td>
                 {{ category.description }}
               </td>
-              <td><img src="../component/compo_commun/icones/folder_magnify.png" on-click="showLinks(category)" alt="Tâches" />
+              <td><img src="../component/compo_commun/icones/folder_magnify.png" on-click="showTaches(category)" alt="Tâches" />
               <img id="editCategoryButton" src="../component/compo_commun/icones/folder_edit.png" on-click="edit(category)" alt="Modifier" />
               <img src="../component/compo_commun/icones/folder_delete.png" on-click="delete(category)" alt="Supprimer" />
               </td>
             </tr>
-            <tr template if="!display(category)">
+            <tr template if="!display(category)"><!--Cette ligne est affiché dans le cas de modification-->
               <td>
                 {{ category.code }}        
-               <!--  
-                <div template if="showCategoryEdit  category.code={{ category.code }}">
-                  
-                <label for="add-category-code">Name</label>
-                <input id="add-category-code" type="text" size="32"/>
-                <br/>
-                <label for="add-category-description">Description</label>
-                <input id="add-category-description" type="text" size="96"/>
-                  
-                  </div>
-        -->
-                
               </td>
               <td>
-                <input id="edit-category-description" type="text" size="32" value="{{ category.description }}"/>
+                <input id="edit-category-description" type="text" style="width:95%" value="{{ category.description }}"/>
               </td>
-              <td><img src="../component/compo_commun/icones/folder_magnify.png" on-click="showLinks(category)" alt="Tâches" />
-              <img id="editCategoryButton" src="../component/compo_commun/icones/folder_edit.png" on-click="edit(category)" alt="Modifier" />
-              <img src="../component/compo_commun/icones/folder_delete.png" on-click="delete(category)" alt="Supprimer" />
+              <!--Refuser modification-->
+              <!--Accepter modification-->
+              <td align="center">
+                <img src="../component/compo_commun/icones/cancel.png" on-click="refuserChangement(category)" alt="Refuser" />
+                <img src="../component/compo_commun/icones/accept.png" on-click="update(category)" alt="Accepter" />
               </td>
-             </tr>
+             </tr><!--Fin de ligne de modification-->
           </tbody>
-          <tr>
-          <td><input id="add-category-code" type="text" style="width:90%"/></td>
+          <tr> <!--Ligne d'ajout-->
+          <td><input id="add-category-code" type="text" style="width:95%"/></td>
           <td><input id="add-category-description" type="text" style="width:95%"/></td>
           <td><img src="../component/compo_commun/icones/folder_add.png" on-click="ajouterCategorie()" alt="Ajouter catégorie"/></td>
            </tr>
@@ -67,11 +57,11 @@
           <span id="add-category-message"></span>
 
         <br/>
-        <div template if="showCategoryLinks">
-          <x-link-table
+        <div template if="showCategoryTaches">
+          <x-tache-table
             category="{{ category }}"
-            links="{{ category.links }}">
-          </x-link-table>
+            taches="{{ category.taches }}">
+          </x-tache-table>
         </div>
       </template>
       <script type="application/dart" src="category_table.dart"></script>

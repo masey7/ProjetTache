@@ -1,31 +1,32 @@
-part of dartlero_category_links;
+part of dartlero_category_tache;
 
-class Link extends ConceptEntity<Link> {
-
-  Uri url;
+class Tache extends ConceptEntity<Tache> {
+  
   String description;
+  DateTime date;
 
-  Link newEntity() => new Link();
+  Tache newEntity() => new Tache();
 
   String toString() {
     return '    {\n '
            '      ${super.toString()}, \n '
-           '      link: ${url}, \n '
            '      description: ${description}\n'
+           '      date: ${date}\n'           
            '    }\n';
   }
 
   Map<String, Object> toJson() {
     Map<String, Object> entityMap = super.toJson();
-    entityMap['url'] = url.toString();
+    
     entityMap['description'] = description;
+    entityMap['date'] = date;
     return entityMap;
   }
 
   fromJson(Map<String, Object> entityMap) {
     super.fromJson(entityMap);
-    url = new Uri.fromString(entityMap['url']);
     description = entityMap['description'];
+    date = entityMap['date'];
   }
 
   bool get onProgramming =>
@@ -33,10 +34,10 @@ class Link extends ConceptEntity<Link> {
 
 }
 
-class Links extends ConceptEntities<Link> {
+class Taches extends ConceptEntities<Tache> {
 
-  Links newEntities() => new Links();
-  Link newEntity() => new Link();
+  Taches newEntities() => new Taches();
+  Tache newEntity() => new Tache();
 
 }
 

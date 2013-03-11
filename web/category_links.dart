@@ -4,25 +4,25 @@ import 'dart:json';
 import 'package:dartlero/dartlero.dart';
 import 'package:Gestion_des_taches/dartlero_categorie_taches.dart';
 
-CategoryLinksModel categoryLinksModel;
+CategoryTachesModel categoryTachesModel;
 Categories categories;
 
 load() {
   String json = window.localStorage['dartlero_categorie_taches'];
   if (json == null) {
-    categoryLinksModel.init();
+    categoryTachesModel.init();
   } else {
     categories.fromJson(parse(json));
     if (categories.length == 0) {
-      categoryLinksModel.init();
+      categoryTachesModel.init();
     }
   }
   categories.order();
 }
 
 main() {
-  categoryLinksModel = new CategoryLinksModel();
-  categories = categoryLinksModel.categories;
+  categoryTachesModel = new CategoryTachesModel();
+  categories = categoryTachesModel.categories;
   load();
 }
 

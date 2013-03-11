@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tâches</title>
+  </head>
+  <body>
+    <element name="x-tache-table" extends="span">
+      <template>
+ <!--       <div template if="showtacheAdd">
+          <x-tache-add
+            category="{{ category }}"
+            taches="{{ taches }}">
+          </x-tache-add>
+        </div>
+        <div template if="showtacheEdit">
+          <x-tache-edit
+            category="{{ category }}"
+            taches="{{ taches }}"
+            tache="{{ tache }}">
+          </x-tache-edit>
+        </div>
+        
+        -->
+        <table>
+          <caption class="marker">
+            taches of {{ category.code }} category
+            <button id="addtacheButton" on-click="add()">Show Add</button> 
+          </caption>
+          <tr>
+            <th>Tache</th>
+            <th>Échéance</th>
+            <th>Personnes impliqués</th>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Remove</th>
+          </tr>
+          <tbody template iterate="tache in taches.toList()">
+            <tr>
+              <td>{{ tache.code }}</td>
+              <td>{{ tache.date }}</td>
+              <td>À venir</td>              
+              <td>{{ tache.description }}</td>
+              <td><button id="edittacheButton" on-click="edit(tache)">
+                Edit</button>
+              </td>
+              <td><button on-click="delete(tache)">Remove</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </template>
+      <script type="application/dart" src="tache_table.dart"></script>
+    </element>
+  </body>
+</html>
