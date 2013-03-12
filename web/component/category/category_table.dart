@@ -73,7 +73,7 @@ class CategoryTable extends WebComponent {
     var error = false;
     message.text = '';
     if (code.value.trim() == '') {
-      message.text = 'category name is mandatory; ${message.text}';
+      message.text = 'Le nom de la catégorie est obligatoire; ${message.text}';
       error = true;
     }
     if (!error) {
@@ -81,12 +81,12 @@ class CategoryTable extends WebComponent {
       category.code = code.value;
       category.description = description.value;
       if (categories.add(category)) {
-        message.text = 'added';
+        message.text = 'ajouté';
         var categoryTable = document.query('x-category-table').xtag;
         categoryTable.categories.order();
         ComposantesCommuns.sauvegarder(categories);
       } else {
-        message.text = 'category name already in use';
+        message.text = 'Le nom de cette catégorie est déjà utilisé.';
       }
     }
   }

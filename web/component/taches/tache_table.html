@@ -39,12 +39,12 @@
           <tbody template iterate="tache in taches.toList()">
             <tr>
               <td>{{ tache.code }}</td>
-              <td>{{ tache.date }}</td>
+              <td>{{ tache.date.day }}/{{ tache.date.month }}/{{ tache.date.year }}</td>
               <td>À venir</td>              
               <td>{{ tache.description }}</td>
               <td><button id="edittacheButton" on-click="edit(tache)">
                 Edit</button>
-              </td>
+              </td> 
               <td><button on-click="delete(tache)">Remove</button></td>
             </tr>
           </tbody>
