@@ -36,7 +36,7 @@ load() {
   String jsonCategorie = window.localStorage['dartlero_categorie_taches'];
   String jsonPersonnel = window.localStorage['dartlero_personnels'];
   
-  if (jsonCategorie == null) {
+  if (jsonCategorie != null) {
     categoryTachesModel.init();
     modelInit = true;
   } else {
