@@ -59,8 +59,10 @@
         <br/>
         <div template if="showCategoryTaches">
           <x-tache-table
+            categories="{{ categories }}"            
             category="{{ category }}"
-            taches="{{ category.taches }}">
+            taches="{{ category.taches }}"
+            personnels="{{ personnels }}">
           </x-tache-table>
         </div>
       </template>

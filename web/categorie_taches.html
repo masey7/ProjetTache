@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Gestion des tâches</title>
     <link rel="components" href="component/category/category_table.html">
+    <link rel="components" href="component/personnel/personnel_table.html">
     <link rel="stylesheet" href="css/input.css"/>
     <link rel="stylesheet" href="css/link.css"/>
     <link rel="stylesheet" href="css/marker.css"/>
@@ -19,13 +20,31 @@
     <div class="page-title">
      Gestion des tâches
     </div>
+    
+<div template if="showTache"><button id="cacherTache" on-click="toogleTache()">Cacher Tâche</button> </div>  
+<div template if="!showTache"><button id="afficherTache" on-click="toogleTache()">Afficher Tâche</button> </div> 
+<div template if="showPersonnels"><button id="cacherPersonnels" on-click="tooglePersonnels()">Cacher Personnels</button> </div>   
+<div template if="!showPersonnels"><button id="AfficherPersonnels" on-click="tooglePersonnels()">Afficher Personnels</button> </div>  
+
+            
+             
+<div template if="showTache">    
     <x-category-table
-      categories="{{ categories }}">
+      categories="{{ categories }}"
+      personnels="{{ personnels }}">
     </x-category-table>
+</div> 
+
+<br/>
+<div template if="showPersonnels">    
+    <x-personnel-table
+      personnels="{{ personnels }}">
+    </x-personnel-table>
+</div> 
 
 <footer>Merci à <a href="http://www.famfamfam.com">famfamfam</a> pour leurs belles icônes.</footer>
 
-    <script type="application/dart" src="category_links.dart"></script>
+    <script type="application/dart" src="categorie_taches.dart"></script>
     <script src="packages/browser/dart.js"></script>
     
   </body>

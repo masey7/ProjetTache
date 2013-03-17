@@ -3,20 +3,20 @@ import 'package:dartlero/dartlero.dart';
 import 'package:Gestion_des_taches/dartlero_categorie_taches.dart';
 
 testModel() {
-  CategoryTachesModel categoryLinksModel;
+  CategoryTachesModel categoryTachesModel;
   Categories categories;
   group("Testing Model: ", () {
     setUp(() {
-      categoryLinksModel = new CategoryTachesModel();
-      categoryLinksModel.init();
-      categories = categoryLinksModel.categories;
+      categoryTachesModel = new CategoryTachesModel();
+      categoryTachesModel.init();
+      categories = categoryTachesModel.categories;
     });
     tearDown(() {
       categories.clear();
       expect(categories.isEmpty, isTrue);
     });
     test('Display model', () {
-      categoryLinksModel.display();
+      categoryTachesModel.display();
     });
   });
 }

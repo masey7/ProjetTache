@@ -10,3 +10,8 @@ sauvegarder(categories) {
   window.localStorage['dartlero_categorie_taches'] =
       stringify(categories.toJson());
 }
+
+sauvegarderPersonnel(personnels) {
+  window.localStorage['dartlero_personnels'] =
+      stringify(personnels.toJson());
+}

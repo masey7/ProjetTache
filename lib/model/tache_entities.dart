@@ -4,6 +4,7 @@ class Tache extends ConceptEntity<Tache> {
   
   String description;
   DateTime date;
+  Personnels listeDePersonel = new Personnels();
 
   Tache newEntity() => new Tache();
 
@@ -11,6 +12,7 @@ class Tache extends ConceptEntity<Tache> {
     return '    {\n '
            '      ${super.toString()}, \n '
            '      description: ${description}\n'
+           '      listeDePersonel: ${listeDePersonel}\n'
            '      date: ${date}\n'           
            '    }\n';
   }
@@ -19,16 +21,16 @@ class Tache extends ConceptEntity<Tache> {
     Map<String, Object> entityMap = super.toJson();
     
     entityMap['description'] = description;
-    //entityMap['date'] = date;
     entityMap['date'] = date.toString();
+    entityMap['listeDePersonel'] = listeDePersonel.toString();
     return entityMap;
   }
 
   fromJson(Map<String, Object> entityMap) {
     super.fromJson(entityMap);
     description = entityMap['description'];
-    //date = entityMap['date'];
     date = DateTime.parse(entityMap['date']);
+    listeDePersonel = entityMap['listeDePersonel'];
   }
 
   bool get onProgramming =>

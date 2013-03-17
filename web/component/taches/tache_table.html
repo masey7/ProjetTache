@@ -8,47 +8,67 @@
   <body>
     <element name="x-tache-table" constructor="TacheTable" extends="span">
       <template>
- <!--       <div template if="showtacheAdd">
-          <x-tache-add
-            category="{{ category }}"
-            taches="{{ taches }}">
-          </x-tache-add>
-        </div>
-        <div template if="showtacheEdit">
-          <x-tache-edit
-            category="{{ category }}"
-            taches="{{ taches }}"
-            tache="{{ tache }}">
-          </x-tache-edit>
-        </div>
-        
-        -->
         <table>
           <caption class="marker">
-            taches of {{ category.code }} category
-            <button id="addtacheButton" on-click="add()">Show Add</button> 
+            taches de la catégorie : {{ category.code }}
           </caption>
           <tr>
             <th>Tache</th>
             <th>Échéance</th>
             <th>Personnes impliqués</th>
             <th>Description</th>
-            <th>Edit</th>
-            <th>Remove</th>
+            <th></th>
           </tr>
           <tbody template iterate="tache in taches.toList()">
-            <tr>
+            
+            <!-- Dans le cas ou la modification n'est pas activé -->
+           <tr template if="display(tache)">
               <td>{{ tache.code }}</td>
               <td>{{ tache.date.day }}/{{ tache.date.month }}/{{ tache.date.year }}</td>
-              <td>À venir</td>              
+              <td>
+                
+                 <template iterate="personnel in tache.listeDePersonel.toList()">
+                  <li>{{ personnel.code }}</li>
+                 </template>
+              </td>            
               <td>{{ tache.description }}</td>
-              <td><button id="edittacheButton" on-click="edit(tache)">
-                Edit</button>
-              </td> 
-              <td><button on-click="delete(tache)">Remove</button></td>
+              <td>
+              
+              <img id="editTacheButton" src="../component/compo_commun/icones//application_edit.png" on-click="edit(tache)" alt="Modifier" />
+              <img src="../component/compo_commun/icones/application_delete.png" on-click="delete(tache)" alt="Supprimer" />
+              </td>
             </tr>
+            
+
+
+           <tr template if="!display(tache)">
+              <td>{{ tache.code }}</td>
+              <td><input id="edit-tache-echeance" type="date" value="{{ tache.date.toString() }}"/></td>
+              <td>
+                
+                 <template iterate="personnel in tache.listeDePersonel.toList()">
+                  <li>{{ personnel.code }} <img src="../component/compo_commun/icones/user_delete.png" on-click="deletePersonne(personnel, tache)" alt="Supprimer la personne impliquée" /> </li>
+                 </template>
+              </td>            
+              <td><input id="edit-tache-description" type="text" style="width:95%" value="{{ tache.description }}"/></td>
+              <td>
+              <img src="../component/compo_commun/icones/cancel.png" on-click="refuserChangement(tache)" alt="Refuser" />
+              <img src="../component/compo_commun/icones/accept.png" on-click="update(tache)" alt="Accepter" />
+              </td>
+            </tr>
+            
+            
+            
           </tbody>
+             <tr>
+              <td><input id="add-tache-code" type="text" style="width:95%"/></td>
+              <td><input id="add-tache-echeance" type="date"/></td>
+              <td>À venir...</td>
+              <td><input id="add-tache-description" type="text" style="width:95%"/></td>
+              <td><img src="../component/compo_commun/icones/application_add.png" on-click="ajouterTache()" alt="Ajouter Tache"/></td>
+            </tr>
         </table>
+        <span id="add-tache-message"></span>
       </template>
       <script type="application/dart" src="tache_table.dart"></script>
     </element>

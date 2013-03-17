@@ -3,17 +3,36 @@ part of dartlero_category_tache;
 class CategoryTachesModel extends ConceptModel {
   
   static final String category = 'Category';
-
+  static final String personnel = 'Personnel';
+  
   Map<String, ConceptEntities> newEntries() {
     var categories = new Categories();
+    var personnels = new Personnels();
+    
     var map = new Map<String, ConceptEntities>();
     map[category] = categories;
+    map[personnel] = personnels;    
     return map;
   }
 
   Categories get categories => getEntry(category);
+  
+  Personnels get personnels => getEntry(personnel);
 
   init() {
+    
+    
+    var personnel1 = new Personnel();    
+    personnel1.code = 'Marie';
+    personnel1.departement = 'comptabilité';
+    personnels.add(personnel1);    
+    
+    var personnel2 = new Personnel();    
+    personnel2.code = 'Marc';
+    personnel2.departement = 'SIO';
+    personnels.add(personnel2);     
+    
+    
     var webCategory = new Category();
     webCategory.code = 'Etudes';
     webCategory.description = 'Relatif à mon MBA';
@@ -25,6 +44,8 @@ class CategoryTachesModel extends ConceptModel {
     travailCoursArchitecture.description =
         'Travail en architecture sur cas ABC';
     travailCoursArchitecture.date = new DateTime(2013, 3, 19);
+    travailCoursArchitecture.listeDePersonel.add(personnel1);
+    travailCoursArchitecture.listeDePersonel.add(personnel2);   
     webCategoryTaches.add(travailCoursArchitecture);
 
     var examensArchitecture = new Tache();
@@ -36,7 +57,7 @@ class CategoryTachesModel extends ConceptModel {
 
     var dartCategory = new Category();
     dartCategory.code = 'Travail';
-    dartCategory.description = 'Relatif à mon emplois';
+    dartCategory.description = 'Relatif à mon emploi';
     categories.add(dartCategory);
 
     var dartCategoryLinks = dartCategory.taches;

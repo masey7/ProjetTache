@@ -8,6 +8,7 @@ import 'package:web_ui/web_ui.dart';
 class CategoryTable extends WebComponent {
   Categories categories;
   Category category;
+  Personnels personnels;
   
   bool showCategoryTaches = false;
   bool editCategory = false;

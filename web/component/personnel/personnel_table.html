@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Personnels</title>    
+    <link rel="components" href="../personnel/personnel_table.html">
+  </head>
+  <body>
+    <element name="x-personnel-table" constructor="PersonnelTable" extends="span">
+      <template>
+        <table>
+          <caption class="marker">
+            Personnels
+          </caption>
+          <tr>
+            <th>Nom</th>
+            <th>Département</th>
+            <th></th>
+
+          </tr>
+          <tbody template iterate="personnel in personnels.toList()">
+            <tr template if="display(personnel)">
+              <td>    
+                {{ personnel.code }}        
+              </td>
+              <td>
+                {{ personnel.departement }}
+              </td>
+              <td>
+              <img id="editPersonnelButton" src="../component/compo_commun/icones/user_edit.png" on-click="edit(personnel)" alt="Modifier" />
+              <img src="../component/compo_commun/icones/user_delete.png" on-click="delete(personnel)" alt="Supprimer" />
+              </td>
+            </tr>
+            <tr template if="!display(personnel)"><!--Cette ligne est affiché dans le cas de modification-->
+              <td>
+                {{ personnel.code }}        
+              </td>
+              <td>
+                <input id="edit-personnel-departement" type="text" style="width:95%" value="{{ personnel.departement }}"/>
+              </td>
+              <!--Refuser modification-->
+              <!--Accepter modification-->
+              <td align="center">
+                <img src="../component/compo_commun/icones/cancel.png" on-click="refuserChangement(personnel)" alt="Refuser" />
+                <img src="../component/compo_commun/icones/accept.png" on-click="update(personnel)" alt="Accepter" />
+              </td>
+             </tr><!--Fin de ligne de modification-->
+          </tbody>
+          <tr> <!--Ligne d'ajout-->
+          <td><input id="add-personnel-code" type="text" style="width:95%"/></td>
+          <td><input id="add-personnel-departement" type="text" style="width:95%"/></td>
+          <td><img src="../component/compo_commun/icones/user_add.png" on-click="ajouterPersonnel()" alt="Ajouter personnel"/></td>
+           </tr>
+
+           </table>
+          <span id="add-personnel-message"></span>
+        <br/>
+      </template>
+      <script type="application/dart" src="personnel_table.dart"></script>
+    </element>
+  </body>
+</html>
