@@ -22,7 +22,7 @@ class Tache extends ConceptEntity<Tache> {
     
     entityMap['description'] = description;
     entityMap['date'] = date.toString();
-    entityMap['listeDePersonel'] = listeDePersonel.toString();
+    entityMap['listeDePersonel'] = listeDePersonel.toJson();
     return entityMap;
   }
 
@@ -30,7 +30,7 @@ class Tache extends ConceptEntity<Tache> {
     super.fromJson(entityMap);
     description = entityMap['description'];
     date = DateTime.parse(entityMap['date']);
-    listeDePersonel = entityMap['listeDePersonel'];
+    listeDePersonel.fromJson(entityMap['listeDePersonel']);
   }
 
   bool get onProgramming =>
