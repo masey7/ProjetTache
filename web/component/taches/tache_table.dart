@@ -95,18 +95,17 @@ class TacheTable extends WebComponent {
       var tache = new Tache();
       tache.code = code.value;
       
-      for (int i = 1; i <= tacheAAjouter.listeDePersonel.length; i++) 
-          {
-            var personel = new Personnel();
-            personel.code = tacheAAjouter.listeDePersonel(i).code;
-            personel.departement = tacheAAjouter.listeDePersonel(i).departement;
+      
+      for (var personel_iterator in tacheAAjouter.listeDePersonel) {
+        
+        var personel = new Personnel();
+        personel.code = personel_iterator.code;
+        personel.departement = personel_iterator.departement;
 
-            
-            
-            tache.listeDePersonel.add(personel);
-            tacheAAjouter.listeDePersonel.iterator.moveNext();
-          }
-      //tache.listeDePersonel.copy((tacheAAjouter.listeDePersonel));
+        
+        
+        tache.listeDePersonel.add(personel);
+      }
       
       var jour = new StringBuffer();
       jour.write(date.value);

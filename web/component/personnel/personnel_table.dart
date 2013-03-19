@@ -53,9 +53,9 @@ class PersonnelTable extends WebComponent {
     personnels.remove(personnel);
     editPersonnel = false;
 
-    for (category in categories){
-      for (tache in category.taches){
-        if (tache.listeDePersonel.contains(personnel) == true){
+    for (var category in categories){
+      for (var tache in category.taches){
+        if (tache.listeDePersonel.toList().contains(personnel) == true){
         
           tache.listeDePersonel.remove(personnel);
         
