@@ -53,6 +53,8 @@ class CategoryTachesModel extends ConceptModel {
     examensArchitecture.description =
         'Cet examens portera sur la méthode ADN.';
     examensArchitecture.date = new DateTime(2013, 3, 21);
+    examensArchitecture.listeDePersonel.add(personnel1);
+    examensArchitecture.listeDePersonel.add(personnel2);     
     webCategoryTaches.add(examensArchitecture);
 
     var dartCategory = new Category();
@@ -60,20 +62,26 @@ class CategoryTachesModel extends ConceptModel {
     dartCategory.description = 'Relatif à mon emploi';
     categories.add(dartCategory);
 
-    var dartCategoryLinks = dartCategory.taches;
+    var tacheDart3 = dartCategory.taches;
     var developperApplicationTachesCategory = new Tache();
     developperApplicationTachesCategory.code = 'Application Tâches';
     developperApplicationTachesCategory.description =
         'Développer une application permettant de gérer des tâches';
     developperApplicationTachesCategory.date = new DateTime(2013, 3, 30);
-    dartCategoryLinks.add(developperApplicationTachesCategory);
+    developperApplicationTachesCategory.listeDePersonel.add(personnel1);
+    developperApplicationTachesCategory.listeDePersonel.add(personnel2);     
+    
+    tacheDart3.add(developperApplicationTachesCategory);
 
     var formerNouvelleRessource = new Tache();
     formerNouvelleRessource.code = 'Former nouvelle ressource';
     formerNouvelleRessource.description =
         'Former Ali, le nouveau de notre Direction.';
     formerNouvelleRessource.date = new DateTime(2013, 3, 25);
-    dartCategoryLinks.add(formerNouvelleRessource);
+    
+    formerNouvelleRessource.listeDePersonel.add(personnel1);
+    formerNouvelleRessource.listeDePersonel.add(personnel2);        
+    tacheDart3.add(formerNouvelleRessource);
   }
   
   display() {

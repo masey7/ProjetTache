@@ -24,7 +24,7 @@
             <!-- Dans le cas ou la modification n'est pas activé -->
            <tr template if="display(tache)">
               <td>{{ tache.code }}</td>
-              <td>{{ tache.date.day }}/{{ tache.date.month }}/{{ tache.date.year }}</td>
+              <td>{{ tache.date.year }}/{{ tache.date.month }}/{{ tache.date.day }}</td>
               <td>
                 
                  <template iterate="personnel in tache.listeDePersonel.toList()">
@@ -43,11 +43,16 @@
 
            <tr template if="!display(tache)">
               <td>{{ tache.code }}</td>
-              <td><input id="edit-tache-echeance" type="date" value="{{ tache.date.toString() }}"/></td>
+              <td><input id="edit-tache-echeance" type="date" value="{{ tache.getDateWithZero() }}"/></td>
               <td>
                 
                  <template iterate="personnel in tache.listeDePersonel.toList()">
                   <li>{{ personnel.code }} <img src="../component/compo_commun/icones/user_delete.png" on-click="deletePersonne(personnel, tache)" alt="Supprimer la personne impliquée" /> </li>
+                 </template>
+                 <br/>
+                 Liste Déroulante
+                 <template iterate="personnel in personnels.toList()">
+                  <li>{{ personnel.code }} <img src="../component/compo_commun/icones/user_add.png" on-click="ajouter(personnel, tache)" alt="Ajouter la personne à la tache" /> </li>
                  </template>
               </td>            
               <td><input id="edit-tache-description" type="text" style="width:95%" value="{{ tache.description }}"/></td>
@@ -58,14 +63,22 @@
             </tr>
             
             
-            
+             
           </tbody>
              <tr>
               <td><input id="add-tache-code" type="text" style="width:95%"/></td>
               <td><input id="add-tache-echeance" type="date"/></td>
-              <td>À venir...</td>
+              <td>
+                  <template iterate="personnel in tacheAAjouter.listeDePersonel.toList()">
+                  <li>{{ personnel.code }} <img src="../component/compo_commun/icones/user_delete.png" on-click="deletePersonne(personnel, tacheAAjouter)" alt="Supprimer la personne impliquée" /> </li>
+                 </template>
+                Liste Déroulante
+                 <template iterate="personnel in personnels.toList()">
+                  <li>{{ personnel.code }} <img src="../component/compo_commun/icones/user_add.png" on-click="ajouter(personnel, tacheAAjouter)" alt="Ajouter la personne à la tache" /> </li>
+                 </template>
+              </td>
               <td><input id="add-tache-description" type="text" style="width:95%"/></td>
-              <td><img src="../component/compo_commun/icones/application_add.png" on-click="ajouterTache()" alt="Ajouter Tache"/></td>
+              <td><img src="../component/compo_commun/icones/application_add.png" on-click="ajouterTache(tacheAAjouter)" alt="Ajouter Tache"/></td>
             </tr>
         </table>
         <span id="add-tache-message"></span>

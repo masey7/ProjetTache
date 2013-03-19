@@ -8,6 +8,7 @@ import 'package:web_ui/web_ui.dart';
 class PersonnelTable extends WebComponent {
   Personnels personnels;
   Personnel personnel;
+  Categories categories;
   
   bool editPersonnel = false;
   
@@ -51,7 +52,19 @@ class PersonnelTable extends WebComponent {
   delete(personnel) {
     personnels.remove(personnel);
     editPersonnel = false;
+
+    for (category in categories){
+      for (tache in category.taches){
+        if (tache.listeDePersonel.contains(personnel) == true){
+        
+          tache.listeDePersonel.remove(personnel);
+        
+        }
+      }
+    }
+    
     ComposantesCommuns.sauvegarderPersonnel(personnels);
+    ComposantesCommuns.sauvegarder(categories);
   }
   
   ajouterPersonnel() {

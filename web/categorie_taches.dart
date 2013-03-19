@@ -62,9 +62,11 @@ load() {
 }
   
   categories.order();
-  
-  
 }
+
+
+
+
 
 main() {
   categoryTachesModel = new CategoryTachesModel();

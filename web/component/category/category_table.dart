@@ -12,6 +12,7 @@ class CategoryTable extends WebComponent {
   
   bool showCategoryTaches = false;
   bool editCategory = false;
+
   
   update(category) {
     InputElement description = query('#edit-category-description');
@@ -21,6 +22,19 @@ class CategoryTable extends WebComponent {
     this.category = null;  
     categoryTable.categories.order();
     sauvegarder();
+  }
+  
+  loadAtAnyTime(){
+    String jsonCategorie = window.localStorage['dartlero_categorie_taches'];
+    String jsonPersonnel = window.localStorage['dartlero_personnels'];
+    categories.clear();
+    personnels.clear();
+    categories.fromJson(parse(jsonCategorie));
+    personnels.fromJson(parse(jsonPersonnel));
+  showCategoryTaches = false;
+  showTaches(category);
+    
+    return categories;
   }
   
   sauvegarder() {

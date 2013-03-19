@@ -36,6 +36,47 @@ class Tache extends ConceptEntity<Tache> {
   bool get onProgramming =>
       description.contains('programming') ? true : false;
 
+  String getDateWithZero(){
+    StringBuffer dateString = new StringBuffer();
+
+    
+    //Année
+    String stringAMesure = date.year.toString();
+    if(stringAMesure.length == 1){
+      dateString.write("0");
+      dateString.write(date.year.toString());
+    }
+    else{
+      dateString.write(date.year.toString());
+    }
+    dateString.write("-");
+    stringAMesure = "";
+    
+    //Mois
+    stringAMesure = date.month.toString();
+    if(stringAMesure.length == 1){
+      dateString.write("0");
+      dateString.write(date.month.toString());
+    }
+    else{
+      dateString.write(date.month.toString());
+    }
+    dateString.write("-");
+    stringAMesure = "";
+    
+    //Jour
+    stringAMesure = date.day.toString();
+    if(stringAMesure.length == 1){
+      dateString.write("0");
+      dateString.write(date.day.toString());
+    }
+    else{
+      dateString.write(date.day.toString());
+    }
+    stringAMesure = "";
+    return(dateString.toString());
+  }
+  
 }
 
 class Taches extends ConceptEntities<Tache> {

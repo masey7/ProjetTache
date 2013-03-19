@@ -9,10 +9,12 @@ class TacheTable extends WebComponent {
   Taches taches;     //Collection de tâches
   Tache instancetache;   //Une seul tâches
   Personnels personnels;   //Liste de l'ensemble du personnel
-
+  Tache tacheAAjouter = new Tache();
+  bool personnelEdit = false;
   bool showTacheEdit = false;
-
   
+
+
   display(tacheTestee) {
     if (this.instancetache == tacheTestee) {
      
@@ -33,6 +35,15 @@ class TacheTable extends WebComponent {
   refuserChangement(tache) {
     showTacheEdit = false;
     this.instancetache = null;
+    
+    if (personnelEdit = true){
+      var categoryTable = document.query('x-category-table').xtag;
+      categories = categoryTable.loadAtAnyTime();
+      
+    }
+    personnelEdit = false;
+
+    
   }  
   
   update(tacheAUpdater) {
@@ -62,9 +73,9 @@ class TacheTable extends WebComponent {
       ComposantesCommuns.sauvegarder(categories); 
     }
   }
+   
   
-  
-  ajouterTache() {
+  ajouterTache(tacheAAjouter) {
     InputElement code = query("#add-tache-code");
     InputElement date = query("#add-tache-echeance");
     InputElement description = query("#add-tache-description");
@@ -82,7 +93,21 @@ class TacheTable extends WebComponent {
     }
     if (!error) {
       var tache = new Tache();
-      tache.code = code.value;     
+      tache.code = code.value;
+      
+      for (int i = 1; i <= tacheAAjouter.listeDePersonel.length; i++) 
+          {
+            var personel = new Personnel();
+            personel.code = tacheAAjouter.listeDePersonel(i).code;
+            personel.departement = tacheAAjouter.listeDePersonel(i).departement;
+
+            
+            
+            tache.listeDePersonel.add(personel);
+            tacheAAjouter.listeDePersonel.iterator.moveNext();
+          }
+      //tache.listeDePersonel.copy((tacheAAjouter.listeDePersonel));
+      
       var jour = new StringBuffer();
       jour.write(date.value);
       jour.write(" 00:00:00");
@@ -98,9 +123,33 @@ class TacheTable extends WebComponent {
       }
     }
   }
+  
+  ajouter(personnel, tache){
+    Element message = query("#add-tache-message");
+    var error = false;
+    message.text = '';
+    if(tache.listeDePersonel.contains(personnel) == true){
+      message.text = 'Cet utilisateur existe déjà dans la tâche; ${message.text}';
+      error = true;
+    };
+    
+    if (error != true) {
+      
+      tache.listeDePersonel.add(personnel);   
+      personnelEdit = true;
+      message.text = 'Ajoutée';
+        var tacheTable = document.query('x-tache-table').xtag;
+        tacheTable.taches.order();
+  }    
+    
+    
+}
+  
+  
   deletePersonne(personnel, tache){
     tache.listeDePersonel.remove(personnel);
-    ComposantesCommuns.sauvegarder(categories);    
+//    ComposantesCommuns.sauvegarder(categories);
+    personnelEdit = true;
   }
   
   edit(tache) {
@@ -110,5 +159,6 @@ class TacheTable extends WebComponent {
 
   delete(tache) {
     taches.remove(tache);
+    ComposantesCommuns.sauvegarder(categories);
   }
 }
